@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+#container{
+    background-color:antiquewhite;
+    border: cadetblue solid 3px;
+    font-size: 1.5rem;
+    margin: 0 auto;
+    width: 600px;
+}
+
+#container *{
+    margin: 25px;
+}
+
+.op{
+    width: 35px;
+}
