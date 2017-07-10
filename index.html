@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+        <header>
+            <link rel="stylesheet" href="css/custom.css" />
+            <link rel="stylesheet" href="css/skeleton.css" />
+            <script src="js/calculator.js"></script>
+        </header>
+        <h1 >Javascript Fundamentals</h1>
+        <!-- Enter your Name -->
+        <div >
+            <input  type="text" id="firstName" placeholder="First Name">
+        </div>
+        <div >
+            <input  type="text" id="lastName" placeholder="Last Name">
+        </div>
+        <!-- Return a greeting -->
+            <div >
+                <button  onclick="greetMe()">Greet Me!
+                </button>
+            </div>
+        
+        <h2 id="greeting">JS Output Goes Here!</h2>
+        
+        <h3  id="prompt">Perform Any Operation On Two Numbers:</h3>
+        
+        <input  type="number" id="num1" placeholder="First Number" maxlength="6">
+        <div >
+            <button  class="op" onclick="calculate('add')">+</button>
+            <button  class="op" onclick="calculate('sub')">-</button>
+            <button  class="op" onclick="calculate('mul')">*</button>
+            <button  class="op" onclick="calculate('div')">/</button>
+            <button  class="op" onclick="calculate('mod')">%</button>
+            <button  class="op" onclick="calculate('pow')">^</button>
+        </div>
+        <input  type="number" id="num2" placeholder="Second Number" maxlength="6"> =        
+            <h3  id="calculation_result">1946195068359375</h3>
+        
+        
+        </div>
+        <div>
+            <h2>Four Loop Example</h2>
+            <button onclick="loopDeLoop()">Run the Loop!</button>
+            <h3 id="looper">Loop Output: </h3>
+        </div>
+    
+    
+</body></html>
