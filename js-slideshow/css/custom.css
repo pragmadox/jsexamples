@@ -1,0 +1,40 @@
+#slideshow {
+	width: 90%;
+	background-color: #555;
+	padding: 25px;
+	height: 590px;
+	margin: 0 auto;
+	border-radius: 10px;
+	border: 3px solid #AAA;
+}
+
+#bigPic {
+	width: 66%;
+	background-color: #999;
+	padding: 2%;
+	height: 540px;
+	float: left;
+	border-radius: 10px;
+	margin-right: 1%;
+	border: 3px solid #AAA;
+}
+
+#bigPic img{
+	width:100%;
+}
+
+#thumbnails {
+	width: 20%;
+	background-color: #888;
+	padding: 2%;
+	height: 540px;
+	float: right;
+	border-radius: 10px;
+	border: 3px solid #AAA;
+	overflow-y: scroll;
+}
+
+#thumbnails img{
+	width:100%;
+	height: auto;
+}
