@@ -34,7 +34,19 @@
 	overflow-y: scroll;
 }
 
-#thumbnails img{
+#thumbnails img {
 	width:100%;
 	height: auto;
+}
+
+#absolutediv {
+	position: absolute;
+	width: 300px;
+	height: 200px;
+	background-color: aquamarine;
+	border: 5px solid cadetblue;
+	border-radius: 10px;
+	top: 25px;
+	left: 25px;
+	z-index: 5;
 }
