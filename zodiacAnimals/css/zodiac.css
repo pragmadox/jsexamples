@@ -1,5 +1,13 @@
 @charset="UTF-8";
 
+h1 {
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+}
+
 #container {
 	background-color: maroon;
 	width: 95%;
@@ -9,8 +17,12 @@
 }
 
 #upper {
+	color: beige;
+	font-family: Roboto, sans-serif;
 	width: 575px;
-	height: 145px;
+	height: 125px;
+	padding-left: 250px;
+	text-align: center;
 }
 
 #bigPic {
@@ -22,15 +34,22 @@
 	border-radius: 10px;
 	border: 3px solid #AAA;
 	padding: 25px;
+	text-align: center;
+	font-size: 25px;
+	font-family: Roboto, sans-serif;
 }
 
 #bigPic img {
-	width:100%;
+	width: 80%;
+	height: auto;
+	border-radius: 20px;
 }
+
 
 #thumbnails {
 	width: 55%;
 	background-color: #888;
+	background-size: 450px;
 	height: 375px;
 	float: left;
 	border-radius: 10px;
@@ -42,6 +61,27 @@
 }
 
 #thumbnails img {
-	width:100%;
-	height: auto;
+	width: 70px;
+	height: 70px;
+	border-radius: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 7px;
+	box-shadow: 5px 5px 5px #555;
+}
+
+/* CSS for the absolute position div that holds a Chinese character image */
+#char {
+	display: none;
+	position: absolute;
+	background-color: white;
+	height: 100px;
+	margin-left: 130px;
+	margin-top: 265px;
+}
+
+#char img {
+	box-shadow: none;
+	height: 100px;
+	width: 145px;
 }
