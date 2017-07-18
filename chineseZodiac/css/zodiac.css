@@ -72,7 +72,6 @@ h2 {
 
 /* CSS for the absolute position div that holds a Chinese character image */
 #char {
-	display: none;
 	position: absolute;
 	background-color: white;
 	height: 100px;

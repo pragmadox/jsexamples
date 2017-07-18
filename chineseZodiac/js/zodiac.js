@@ -20,10 +20,11 @@ var objArray =
 var thumbnails = document.getElementById("thumbnails");
 var bicPic = document.getElementById("bigPic");
 var largeImage = document.getElementById("largeImage");
-var charPic = document.getElementById("chinCharacter");
-var chineseCharDiv = document.getElementById("char");
+var chinCharPic = document.getElementById("chinCharacter");
+var chinCharDiv = document.getElementById("char");
 var quizMe = document.getElementById("quiz");
 var turnOffQuiz = document.getElementById("no-quiz");
+
 var audio = new Audio();
 var randomAudio = new Audio();
 var randomNum;
@@ -43,14 +44,17 @@ function initialize() {
 	bigPic.appendChild(largeImage);
 	
 		for(i=0; i<objArray.length; i++) {
-		engrecording = new Audio();
-		engrecording.src = "audio/" + objArray[i].eng + ".mp3";
-		chinrecording = new Audio();
-		chinrecording.src = "audio/" + objArray[i].chin + ".mp3";
+		engRecording = new Audio();
+		engRecording.src = "audio/" + objArray[i].eng + ".mp3";
+		chinRecording = new Audio();
+		chinRecording.src = "audio/" + objArray[i].chin + ".mp3";
+		chinChar = new Image();
+		chinChar.src = "images/char-" + objArray[i].chin + ".jpg";
 		customArray[i] = new Image();
 		customArray[i].src = "images/" + objArray[i].eng + ".jpg";
-		customArray[i].engrec = engrecording;
-		customArray[i].chinrec = chinrecording;
+		customArray[i].chinChar = chinChar;
+		customArray[i].engRec = engRecording;
+		customArray[i].chinRec = chinRecording;
 		customArray[i].eng = objArray[i].eng;
 		customArray[i].pin = objArray[i].pin;
 		customArray[i].chin = objArray[i].chin;
@@ -67,10 +71,9 @@ function swap() {
 		bigPic.innerHTML = "";
 		bigPic.appendChild(largeImage);
 		largeImage.src = this.src;
-		chineseCharDiv.style.display = "block";
-		charPic.src = "images/char-" + this.chin + ".jpg";
+		chinCharPic.src = this.chinChar.src;
 		bigPic.innerHTML += "<br>" + this.eng + " - " + this.pin;
-		audio = this.engrec;
+		audio = this.engRec;
 		audio.play();
 	}
 	else {
@@ -98,9 +101,12 @@ function play_random() {
 	bigPic.innerHTML = "What animal name did I just say in Chinese?";
 	randomAudio.pause();
 	randomNum = loadrandom();
-	randomAudio = customArray[randomNum].chinrec;
-	randomAudio.play();
-	randomID = customArray[randomNum];
+	this = customArray[randomNum];
+	this.chinRec.play();
+	randomID = this;
+	chinCharDiv.innerHTML = "";
+	chinCharDiv.appendChild(this.chinChar);
+	chinCharDiv.style.display = "block";
 }
 
 function loadrandom() {
