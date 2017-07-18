@@ -19,24 +19,38 @@ var objArray =
 /* Variable Declarations */
 var thumbnails = document.getElementById("thumbnails");
 var bicPic = document.getElementById("bigPic");
+var largeImage = document.getElementById("largeImage");
 var charPic = document.getElementById("chinCharacter");
 var chineseCharDiv = document.getElementById("char");
+var quizMe = document.getElementById("quiz");
+var turnOffQuiz = document.getElementById("no-quiz");
+var audio = new Audio();
+var randomAudio = new Audio();
+var randomNum;
+var buttonID;
+var randomID;
+var arrayLength = 11;
+var isQuiz = false;
+
+quizMe.addEventListener("click", play_random);
+turnOffQuiz.addEventListener("click", turnOff);
 
 /* Counter variable declared */
 var i = 0;
 
-
 function initialize() {
-	largeImage = document.getElementById("largeImage");
 	largeImage.src = 'images/zodiac-animal-wheel.png';
 	bigPic.appendChild(largeImage);
 	
 		for(i=0; i<objArray.length; i++) {
-		recording = new Audio();
-		recording.src = "audio/" + objArray[i].eng + ".mp3";
+		engrecording = new Audio();
+		engrecording.src = "audio/" + objArray[i].eng + ".mp3";
+		chinrecording = new Audio();
+		chinrecording.src = "audio/" + objArray[i].chin + ".mp3";
 		customArray[i] = new Image();
 		customArray[i].src = "images/" + objArray[i].eng + ".jpg";
-		customArray[i].rec = recording;
+		customArray[i].engrec = engrecording;
+		customArray[i].chinrec = chinrecording;
 		customArray[i].eng = objArray[i].eng;
 		customArray[i].pin = objArray[i].pin;
 		customArray[i].chin = objArray[i].chin;
@@ -48,12 +62,55 @@ function initialize() {
 initialize();
 
 function swap() {
-	bigPic.innerHTML = "";
-	bigPic.appendChild(largeImage);
-	largeImage.src = this.src;
-	chineseCharDiv.style.display = "block";
-	charPic.src = "images/char-" + this.chin + ".jpg";
-	sound = this.rec;
-	bigPic.innerHTML += "<br>" + this.eng + " - " + this.pin;
-	sound.play();
+	if (isQuiz == false) {
+		audio.pause();
+		bigPic.innerHTML = "";
+		bigPic.appendChild(largeImage);
+		largeImage.src = this.src;
+		chineseCharDiv.style.display = "block";
+		charPic.src = "images/char-" + this.chin + ".jpg";
+		bigPic.innerHTML += "<br>" + this.eng + " - " + this.pin;
+		audio = this.engrec;
+		audio.play();
+	}
+	else {
+		if (randomID == this) {
+			alert("Great Job!");
+			this.parentNode.removeChild(this);
+			var index = customArray.indexOf(this);
+			customArray.splice(index, 1);
+			arrayLength--;
+			play_random();
+		}
+		else {
+			alert("Nope. That's Incorrect.");
+		}
+	}
+}
+
+/* This function plays a random animal in Chinese
+The user then clicks the corresponding animal.
+If the animal chosen matches the Chinese audio, the element is removed from the array
+and the element is dropped from the div
+*/
+function play_random() {
+	isQuiz = true;
+	bigPic.innerHTML = "What animal name did I just say in Chinese?";
+	randomAudio.pause();
+	randomNum = loadrandom();
+	randomAudio = customArray[randomNum].chinrec;
+	randomAudio.play();
+	randomID = customArray[randomNum];
+}
+
+function loadrandom() {
+	var number = Math.round(Math.random() * arrayLength);
+	return parseInt(number);
+}
+
+function turnOff() {
+	bicPic.innerHTML = '';
+	isQuiz = false;
+	thumbnails.innerHTML = '';
+	initialize();
 }

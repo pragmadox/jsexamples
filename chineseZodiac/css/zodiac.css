@@ -19,10 +19,10 @@ h2 {
 #upper {
 	color: beige;
 	font-family: Roboto, sans-serif;
-	width: 575px;
+	width: 1000px;
 	height: 125px;
-	padding-left: 250px;
 	text-align: center;
+	margin-bottom: 20px;
 }
 
 #bigPic {
@@ -84,4 +84,18 @@ h2 {
 	box-shadow: none;
 	height: 100px;
 	width: 145px;
+}
+
+#quiz {
+	position: absolute;
+	float: right;
+	margin-top: -125px;
+	margin-left: 510px;
+}
+
+#no-quiz {
+	position: absolute;
+	float: right;
+	margin-top: -75px;
+	margin-left: 510px;
 }
